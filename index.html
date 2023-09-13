@@ -1,106 +1,330 @@
-<!DOCTYPE HTML>
-<!--
-	Photon by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
--->
+<!DOCTYPE html>
 <html>
-	<head>
-		<title>Face-StyleSpeech</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-	</head>
-	<body class="is-preload">
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Face-StyleSpeech: Improved Face-to-Voice latent mapping for Natural Zero-shot Speech Synthesis from a Face Image">
+  <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Face-StyleSpeech</title>
 
-			<section id="header">
-				<div class="inner">
-					<span class="icon solid major fa-cloud"></span>
-					<h1>Face-StyleSpeech</h1>
-					<p>Improved Face-to-Voice latent mapping for Natural<br>
-						Zero-shot Speech Synthesis from a Face Image</p>
-					<ul class="actions special">
-						<li><a href="#one" class="button scrolly">Start</a></li>
-					</ul>
-				</div>
-			</section>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-L7749G0HJZ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-		<!-- Two -->
-		<section id="two" class="main style1">
-			<article>
-			  <header>
-				<h3> <b>※ ① Face-based Voice Preference Test (Choose the appropriate speech from the provided face) </b> / <u>Face pictures are in the evaluation form</u></h3>
-			  </header>
-			</article>
-			<div>
-				<hr>
-				<table id="ab">
-				  <tbody>
-				  <tr id="index">
-					<td>
-					  <B>Index</B>
-					</td>
-				  </tr>
-				  <tr id="text">
-					<td>
-					  <B>Text</B>
-					</td>
-				  </tr>
-				  <tr id="a">
-					<td class="first-col"><B>#1</B></td>
-				  </tr>
-				  <tr id="b">
-					<td class="first-col"><B>#2</B></td>
-				  </tr>
-				  </tbody>
-				</table>
-			  </div>
-			  
-		<!-- Three -->
-		<section id="three" class="main style1">
-			<article>
-				  <header>
-					<h3> <b>※ ② Voice-based Face Preference Test (Choose the appropriate face from the provided speech) </b> / <u>Face pictures are in the evaluation form</u></h3>
-				  </header>
-			</article>
-			<div>
-				<hr>
-				<table id="abx">
-				  <tbody>
-			      <tr id="index">
-					<td>
-					  <B>Index</B>
-					</td>
-				   </tr>
-				   <tr id="text">
-					<td>
-					   <B>Text</B>
-					</td>
-				   </tr>
-				   <tr id="a">
-					<td class="first-col"><B>Reference</B></td>
-				   </tr>
-				   </tbody>
-				</table>
-			</div>
-		</section>
-		
-		<!-- Footer -->
-		<section id="footer">
-			<ul class="copyright">
-				<li>&copy; AITRICS</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-			</ul>
-		</section>
+  gtag('config', 'G-L7749G0HJZ');
+</script>
 
-		<!-- Scripts -->
-			<script src="script_audio.js" charset="UTF-8"></script>
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
 
-	</body>
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/AITRICS_Symbol.png">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body" style="padding-bottom: 24px;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-2 publication-title">Face-StyleSpeech</h1>
+          <h4 class="title is-3 publication-title">Improved Face-to-Voice latent mapping for<br> Natural Zero-shot Speech Synthesis from a Face Image</h4>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="#">Wooseok Han</a><sup>1*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Minki Kang</a><sup>1,2*</sup>,</span>
+            <span class="author-block">
+              <a href="#">Eunho Yang</a><sup>1,2</sup></span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>AITRICS</span>
+            <span class="author-block"><sup>2</sup>KAIST</span>
+          </div>
+          <div class="is-size-8 publication-authors">
+            <span class="author-block"><sup>*</sup>Equal Contribution</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="section" style="padding-top: 0px;">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        
+        <section class="hero teaser">
+            <div class="hero-body">
+                <div class="columns is-vcentered is-centered">
+                      <img src="./static/images/concept.png" width="550"/>
+                </div>
+            </div>
+        </section>
+
+        <div class="content has-text-justified">
+          <p>
+            Generating a voice from a face image is crucial for developing virtual humans capable of interacting using their unique voices, without relying on pre-recorded human speech. 
+            In this paper, we propose <b>Face-StyleSpeech</b>, a zero-shot Text-To-Speech (TTS) synthesis model that generates natural speech <u>conditioned on a face image rather than reference speech</u>. 
+
+            We hypothesize that learning both speaker identity and prosody from a face image poses a significant challenge. 
+            To address the issue, our TTS model incorporates both a face encoder and a prosody encoder. 
+
+            The prosody encoder is specifically designed to model prosodic features that are not captured only with a face image, allowing the face encoder to focus solely on capturing the speaker identity from the face image. 
+            Experimental results demonstrate that Face-StyleSpeech effectively generates more natural speech from a face image than baselines, even for the face images the model has not trained.<br><br>
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+  </div>
+</section>
+
+
+<section class="hero teaser">
+  <div class="container is-max-desktop is-centered has-text-centered">
+    <div class="hero-body">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Model Overview</h2>
+          <img src="./static/images/model_overview.png"
+                    class="interpolation-image"
+                    alt="Interpolate start reference image."/>
+          <h2 class="has-text-centered is-8">
+            The TTS model generates speech given the text embedding, prosody codes, and the speech vector. 
+            We train the face encoder to generate a face vector mapped to the paired speech vector.<br> 
+            In inference, we use the face vector from the face encoder and prosody codes from<br> the prosody language model and the prompt speech.
+          </h2>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Examples</h2>
+        <div class="content has-text-justified">
+          <!-- <p>Here, all of the results were using only unseen and unheard speakers.</p>
+          <p>Note that we does not aim to reconstruct an accurate voice of the person, 
+            but rather to generate acoustic characteristics that are correlated with the input face.</p> -->
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 1 (Real face from VoxCeleb2 dataset)</h3>
+        <div class="is-vcentered">
+            <img src="./static/images/mos1.png"/>
+            <p>
+              <b>Text</b>: 
+              <br><br>
+            </p>
+        </div>
+      
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos1-voice.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos1-face.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 2 (Real face from VoxCeleb2 dataset)</h3>
+        <div class="is-vcentered">
+            <img src="./static/images/mos2.png"/>
+            <p>
+              <b>Text</b>: 
+              <br><br>
+            </p>
+        </div>
+      
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos2-voice.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos2-face.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 3 (Real face from VoxCeleb2 dataset)</h3>
+        <div class="is-vcentered">
+            <img src="./static/images/mos3.png"/>
+            <p>
+              <b>Text</b>:
+              <br><br>
+            </p>
+        </div>
+      
+        <div class="columns is-centered">
+          <div class="column content">
+          <p>
+            <b>FACE-TTS</b>
+          </p>
+          <audio controls><source src="./static/wavs/mos3-voice.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+          <p>
+            <b>Face-StyleSpeech</b>
+          </p>
+          <audio controls><source src="./static/wavs/mos3-face.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 4 (Real face from VoxCeleb2 dataset)</h3>
+        <div class="is-vcentered">
+            <img src="./static/images/mos4.png"/>
+            <p>
+              <b>Text</b>: 
+              <br><br>
+            </p>
+        </div>
+      
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos4-voice.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos4-face.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 5 </h3>
+        <div class="is-vcentered">
+            <img style="width: 224px;" src="./static/images/virtual1.jpg"/>
+            <p>
+              <b>Text</b>: 
+              <br><br>
+            </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <audio controls><source src="./static/wavs/virtual1.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 6 </h3>
+        <div class="is-vcentered">
+            <img style="width: 224px;" src="./static/images/virtual2.jpg"/>
+            <p>
+              <b>Text</b>: 
+              <br><br>
+            </p>
+        </div>
+        <div class="columns is-centered">
+          <div class="column content">
+            <audio controls><source src="./static/wavs/virtual2.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Licenses</h2>
+          <div class="content">
+            <p>
+              This website is licensed under a <a rel="license"
+                                                  href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+              Commons Attribution-ShareAlike 4.0 International License</a>.
+            </p>
+            <p>
+              Website source code based on the <a
+              href="https://facetts.github.io/">Imaginary Voice</a> project page.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
 </html>
