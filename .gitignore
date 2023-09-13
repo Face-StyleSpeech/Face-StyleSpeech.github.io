@@ -1,0 +1,10 @@
+compute_score.py
+shuffle_wavs.py
+norm_audio.py
+wavs_shuffle/ab_index.json
+wavs_shuffle/abx_index.json
+wavs_shuffle/mos_index.json
+wavs
+wavs/*
+csv
+csv/*
