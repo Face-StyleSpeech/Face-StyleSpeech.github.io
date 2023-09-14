@@ -143,10 +143,10 @@
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Examples</h2>
-        <div class="content has-text-justified">
-          <!-- <p>Here, all of the results were using only unseen and unheard speakers.</p>
-          <p>Note that we does not aim to reconstruct an accurate voice of the person, 
+        <h2 class="title is-3">[Zero-shot] Unseen Speaker Face-to-Voice TTS</h2>
+        <div class="has-text-centered is-8">
+          <p>All of the results were using only unseen and speakers.</p>
+          <!-- <p>Note that we does not aim to reconstruct an accurate voice of the person, 
             but rather to generate acoustic characteristics that are correlated with the input face.</p> -->
         </div>
       </div>
@@ -155,9 +155,9 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 1 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="./static/images/mos1.png"/>
+            <img src="./static/images/mos1.jpg" width=220/>
             <p>
-              <b>Text</b>: 
+              <b>Text</b>: However, he held out little hope that the Government would take action.
               <br><br>
             </p>
         </div>
@@ -167,13 +167,19 @@
             <p>
               <b>FACE-TTS</b>
             </p>
-            <audio controls><source src="./static/wavs/mos1-voice.wav" type="audio/wav"></audio>
+            <audio controls><source src="./static/wavs/mos1-facetts.wav" type="audio/wav"></audio>
           </div>
           <div class="column content">
             <p>
-              <b>Face-StyleSpeech</b>
+              <b>Grad-StyleSpeech</b>
             </p>
-            <audio controls><source src="./static/wavs/mos1-face.wav" type="audio/wav"></audio>
+            <audio controls><source src="./static/wavs/mos1-grad-stylespeech.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech (Ours)</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos1-face-stylespeech.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
@@ -183,9 +189,9 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 2 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="./static/images/mos2.png"/>
+            <img src="./static/images/mos2.jpg" width=220/>
             <p>
-              <b>Text</b>: 
+              <b>Text</b>: It's great, because it takes a lot of pressure off the players.
               <br><br>
             </p>
         </div>
@@ -195,13 +201,13 @@
             <p>
               <b>FACE-TTS</b>
             </p>
-            <audio controls><source src="./static/wavs/mos2-voice.wav" type="audio/wav"></audio>
+            <audio controls><source src="./static/wavs/mos2-facetts.wav" type="audio/wav"></audio>
           </div>
           <div class="column content">
             <p>
-              <b>Face-StyleSpeech</b>
+              <b>Face-StyleSpeech (Ours)</b>
             </p>
-            <audio controls><source src="./static/wavs/mos2-face.wav" type="audio/wav"></audio>
+            <audio controls><source src="./static/wavs/mos2-face-stylespeech.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
@@ -211,37 +217,9 @@
       <div class="column is-four-fifths">
         <h3 class="title is-4">Case 3 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img src="./static/images/mos3.png"/>
+            <img src="./static/images/mos3.jpg" width=220/>
             <p>
-              <b>Text</b>:
-              <br><br>
-            </p>
-        </div>
-      
-        <div class="columns is-centered">
-          <div class="column content">
-          <p>
-            <b>FACE-TTS</b>
-          </p>
-          <audio controls><source src="./static/wavs/mos3-voice.wav" type="audio/wav"></audio>
-          </div>
-          <div class="column content">
-          <p>
-            <b>Face-StyleSpeech</b>
-          </p>
-          <audio controls><source src="./static/wavs/mos3-face.wav" type="audio/wav"></audio>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 4 (Real face from VoxCeleb2 dataset)</h3>
-        <div class="is-vcentered">
-            <img src="./static/images/mos4.png"/>
-            <p>
-              <b>Text</b>: 
+              <b>Text</b>: They made clear that they are not interested in Government assistance.
               <br><br>
             </p>
         </div>
@@ -251,13 +229,41 @@
             <p>
               <b>FACE-TTS</b>
             </p>
-            <audio controls><source src="./static/wavs/mos4-voice.wav" type="audio/wav"></audio>
+            <audio controls><source src="./static/wavs/mos3-facetts.wav" type="audio/wav"></audio>
           </div>
           <div class="column content">
             <p>
-              <b>Face-StyleSpeech</b>
+              <b>Face-StyleSpeech (Ours)</b>
             </p>
-            <audio controls><source src="./static/wavs/mos4-face.wav" type="audio/wav"></audio>
+            <audio controls><source src="./static/wavs/mos3-face-stylespeech.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 4 (Real face from VoxCeleb2 dataset)</h3>
+        <div class="is-vcentered">
+            <img src="./static/images/mos4.jpg" width=220/>
+            <p>
+              <b>Text</b>: We must provide a long-term solution to tackle this attitude.
+              <br><br>
+            </p>
+        </div>
+      
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos4-facetts.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech (Ours)</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos4-face-stylespeech.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
@@ -266,17 +272,27 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 5 </h3>
+        <h3 class="title is-4">Case 5 (Real face from VoxCeleb2 dataset)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="./static/images/virtual1.jpg"/>
+            <img src="./static/images/mos5.jpg" width=220/>
             <p>
-              <b>Text</b>: 
+              <b>Text</b>: Over time, with patience and precision, the terrorists will be pursued.
               <br><br>
             </p>
         </div>
+      
         <div class="columns is-centered">
           <div class="column content">
-            <audio controls><source src="./static/wavs/virtual1.wav" type="audio/wav"></audio>
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos5-facetts.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech (Ours)</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos5-face-stylespeech.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
@@ -284,21 +300,88 @@
 
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h3 class="title is-4">Case 6 </h3>
+        <h3 class="title is-4">Case 6 (Real face from LRS3 dataset)</h3>
         <div class="is-vcentered">
-            <img style="width: 224px;" src="./static/images/virtual2.jpg"/>
+            <img style="width: 224px;" src="./static/images/mos6.png"/>
             <p>
-              <b>Text</b>: 
+              <b>Text</b>: The guidelines are expected to be finalised before next spring.
               <br><br>
             </p>
         </div>
         <div class="columns is-centered">
           <div class="column content">
-            <audio controls><source src="./static/wavs/virtual2.wav" type="audio/wav"></audio>
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos6-facetts.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech (Ours)</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos6-face-stylespeech.wav" type="audio/wav"></audio>
           </div>
         </div>
       </div>
     </div>
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 7 (Real face from LRS3 dataset)</h3>
+        <div class="is-vcentered">
+            <img style="width: 224px;" src="./static/images/mos7.png"/>
+            <p>
+              <b>Text</b>: To the Hebrews it was a token that there would be no more universal floods.
+              <br><br>
+            </p>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos7-facetts.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech (Ours)</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos7-face-stylespeech.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h3 class="title is-4">Case 8 (Real face from LRS3 dataset)</h3>
+        <div class="is-vcentered">
+            <img style="width: 224px;" src="./static/images/mos8.png"/>
+            <p>
+              <b>Text</b>: Many complicated ideas about the rainbow have been formed.
+              <br><br>
+            </p>
+        </div>
+
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              <b>FACE-TTS</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos8-facetts.wav" type="audio/wav"></audio>
+          </div>
+          <div class="column content">
+            <p>
+              <b>Face-StyleSpeech (Ours)</b>
+            </p>
+            <audio controls><source src="./static/wavs/mos8-face-stylespeech.wav" type="audio/wav"></audio>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
