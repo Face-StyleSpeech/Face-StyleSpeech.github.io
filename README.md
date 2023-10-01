@@ -1,7 +1,7 @@
 # Face-StyleSpeech
 This is the repository that contains source code for the [Face-StyleSpeech website](https://face-stylespeech.github.io/).
 
-If you find Nerfies useful for your work please cite:
+If you find Face-StyleSpeech useful for your work please cite:
 ```
 @article{kang2024facestylespeech,
       author    = {Kang, Minki and Han, Wooseok and Yang, Eunho},
